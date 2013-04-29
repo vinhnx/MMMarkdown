@@ -1,0 +1,3 @@
+[submodule "QuickMark"]
+	path = QuickMark
+	url = git://github.com/vinhnx/QuickMark.git
