@@ -15,6 +15,8 @@ Using MMMarkdown is simple. The main API is a single class method:
     NSString *htmlString = [MMMarkdown HTMLStringWithMarkdown:markdown error:&error];
     // Returns @"<h1>Example</h1>\n<p>What a library!</p>"
 
+The markdown string that is passed in must be non-nil.
+
 ## Downloading
 While the development branch (`master`) includes the headers and libraries from the latest release, it is recommended that you use the `release` branch unless you are working on MMMarkdown itself.
 
@@ -30,6 +32,14 @@ Adding MMMarkdown to your Mac or iOS project is easy.
     If you created a directory for those files, you can add the directory itself. It is probably best to place the group that Xcode creates for this directory under the Frameworks group.
 
 You can now use MMMarkdown within your project!
+
+If you'd rather, you can embed the MMMarkdown project and compile it from source in your project.
+
+1. Add MMMarkdown as a git submodule.
+
+2. Add `libMMMarkdown-Mac.a` or `libMMMarkdown-iOS.a` to the "Link Binary with Libraries" section of your project's "Build Phases".
+
+3. Add `$(CONFIGURATION_BUILD_DIR)/MMMarkdown-Mac/public/` or `$(CONFIGURATION_BUILD_DIR)/MMMarkdown-iOS/public/` to the "Header Search Paths" in your project's "Build Settings".
 
 ## License
 MMMarkdown is available under the [MIT License][].

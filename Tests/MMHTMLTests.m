@@ -92,21 +92,29 @@
     MMAssertMarkdownEqualsString(@"<!-- **Test**\n\n -->", @"<!-- **Test**\n\n -->");
 }
 
-#if RUN_KNOWN_FAILURES
 - (void)testHTMLCommentAtEndOfParagraph
 {
     MMAssertMarkdownEqualsString(@"1 <!-- **A Test**\n\n-->",
                                  @"<p>1 <!-- **A Test**\n\n--></p>\n");
 }
-#endif
 
-#if RUN_KNOWN_FAILURES
+- (void)testHTMLCommentInParagraph
+{
+    MMAssertMarkdownEqualsString(@"A <!-- **A Test** --> B",
+                                 @"<p>A <!-- **A Test** --> B</p>\n");
+}
+
 - (void)testHTMLCommentAtEndOfListItem
 {
     MMAssertMarkdownEqualsString(@"1. <!-- **A Test**\n\n-->",
                                  @"<ol>\n<li><!-- **A Test**\n\n--></li>\n</ol>\n");
 }
-#endif
+
+- (void)testHTMLCommentInListItem
+{
+    MMAssertMarkdownEqualsString(@"1. A <!-- **A Test** --> B",
+                                 @"<ol>\n<li>A <!-- **A Test** --> B</li>\n</ol>\n");
+}
 
 
 //==================================================================================================
